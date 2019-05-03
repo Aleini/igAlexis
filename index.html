@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iGoogle Alexis</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row" id="header">
+            <div class="col-md-4"><a href="http://www.igoogleportal.com/">iGoogle</a>
+                <span id="watch"><img src="img/watch.png" alt="cadran de montre"></span>
+                <span id="video"><img src="img/youtube.png" alt="logo youtube"></span>
+                <span id="twitter"><img src="img/twitter.png" alt="logo twitter"></span>
+                <span id="photo"><img src="img/flickr.png" alt="logo flickr"></span>
+                <span id="weather"><img src="img/weather.png" alt="image nuage et soleil"></span>
+                <span id="info"><img src="img/newspaper.png" alt="journal en papier"></span>
+            </div>
+            <div class="col-md-4">
+                <input type="search" name="search" id="search" placeholder="Votre recherche">
+                <button><img src="img/loupe.png" alt="loupe" id="recherche"></button>
+            </div>
+            <div class="col-md-4">
+                <select name="Theme" id="Theme">
+                    <option value="" selected>--Choix du thème--</option>
+                    <option value="batman">Thème Batman</option>
+                    <option value="starwars">Thème Starwars</option>
+                    <option value="nature">Thème Nature</option>
+                    <option value="mer">Thème Mer</option>
+                    <option value="mer">Thème Avengers</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div class="cadre" id='dwatch'>
+            <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
+                Horloge
+                <img src='img/watch.png' alt='cadran de montre'>
+            </div>
+        </div>
+        <div class="cadre" id='dvideo'>
+            <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
+                YouTube
+                <img src='img/youtube.png' alt='logo youtube'>
+            </div>
+            <div><input class="Applisearch" type="text" name="search" placeholder="Votre recherche">
+                <button><img src="img/loupe.png" alt="loupe"></button></div>
+            <div class="element"></div>
+        </div>
+        <div class="cadre" id='dtwitter'>
+            <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
+                Twitter
+                <img src='img/twitter.png' alt='logo Twitter'>
+            </div>
+        </div>
+        <div class="cadre" id='dphoto'>
+            <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
+                Flickr
+                <img src='img/flickr.png' alt='logo flickr'>
+            </div>
+            <div><input class="Applisearch" type="text" name="search" placeholder="Votre recherche">
+                <button><img src="img/loupe.png" alt="loupe"></button></div>
+            <div class="element"></div>
+        </div>
+        <div class="cadre" id='dweather'>
+            <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
+                Météo
+                <img src='img/weather.png' alt='nuage et soleil'>
+            </div>
+            <div><input class="Applisearch" type="text" name="search" placeholder="Votre recherche">
+                <button><img src="img/loupe.png" alt="loupe"></button></div>
+            <div class="element"></div>
+        </div>
+        <div class="cadre" id='dinfo'>
+            <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
+                News
+                <img src='img/newspaper.png' alt='journal'>
+            </div>
+            <div><input class="Applisearch" type="text" name="search" placeholder="Votre recherche">
+                <button><img src="img/loupe.png" alt="loupe"></button></div>
+            <div class="element"></div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="application/javascript" src="JS/Fonctions.js"></script>
+</body>
+
+</html>

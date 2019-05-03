@@ -1,0 +1,170 @@
+body {
+    background-image: url(../img/neutre.jpg);
+}
+
+#header {
+    font-size: 24px;
+    color: PaleTurquoise;
+}
+
+#header a {
+    color: brown;
+}
+
+#header span img {
+    height: 50px;
+    margin: 0 0 5px 10px;
+}
+
+#recherche {
+    height: 30px;
+    width: 30px;
+}
+
+#header a:hover {
+    color: rgb(90, 22, 2);
+}
+
+#search {
+    margin-top: 5px;
+}
+
+button {
+    background-color: white;
+}
+
+strong {
+    font-size: 30px;
+}
+
+#watch {
+    padding-left: 40px;
+}
+
+#header span img:hover {
+    cursor: pointer;
+}
+
+#Theme {
+    background-color: rgb(204, 237, 248);
+    height: 35px;
+    margin: 5px 0 0 30px;
+    color: brown;
+    font-size: 20px;
+}
+
+.cadre {
+    border: 1px solid brown;
+    height: 300px;
+    width: 300px;
+    background-image: url(../img/neutre.jpg);
+    margin: 100px 0 0 50px;
+    box-shadow: 30px 30px 10px black;
+    font-size: 18px;
+    color: black;
+    display: none;
+}
+
+#dwatch {
+    position: absolute;
+    left: 0px;
+}
+
+#dtwitter {
+    position: absolute;
+    left: 350px;
+}
+
+#dvideo,
+#dphoto {
+    position: absolute;
+    left: 0px;
+    top: 400px;
+    height: 400px;
+    width: 400px;
+}
+
+#dphoto {
+    position: absolute;
+    left: 600px;
+}
+
+#dphoto>.element>p>img {
+    width: 400px;
+    height: 400px;
+}
+
+#dweather {
+    position: absolute;
+    left: 700px;
+}
+
+#dinfo {
+    position: absolute;
+    left: 1050px;
+}
+
+#dvideo .Applisearch,
+#dphoto .Applisearch {
+    width: 335px;
+}
+
+.bandeau {
+    height: 30px;
+    width: inherit;
+    background-color: brown;
+    color: white;
+    font-weight: bold;
+}
+
+.bandeau img {
+    height: 20px;
+    width: 20px;
+    float: left;
+    margin-top: 3px;
+}
+
+.bandeau img[src="img/croix.png"] {
+    margin-right: 80px;
+}
+
+button img {
+    height: 25px;
+    width: 25px;
+}
+
+.bandeau img[src="img/croix.png"]:hover {
+    cursor: pointer;
+}
+
+.element p {
+    font-size: 18px;
+    color: black;
+}
+
+#dwatch p {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#dinfo .element p img {
+    height: 80px;
+    width: 80px;
+    float: left;
+}
+
+#dinfo .element p {
+    font-size: 12px;
+    clear: left;
+}
+
+#dweather .element p img {
+    height: 70px;
+    width: 70px;
+}
+
+.Applisearch {
+    width: 235px;
+    border-color: brown;
+}

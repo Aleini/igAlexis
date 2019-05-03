@@ -1,0 +1,34 @@
+        //console.log($(applis[0]).attr('id'));
+        // on récupère la valeur de l'id de l'appli pour avoir l'heure
+        // On l'affiche quand on clique dessus
+        if($(applis[0]).attr('id')=='dwatch'){
+            $(applis[0]).css('display','inline-block').draggable();
+            $(applis[0]).find('p').empty();
+            $(applis[0]).append('<p>Nous sommes le ' + Jour() + ' et il est ' + Heure() + ' </p>');
+        }
+        // Selection de l'appli youtube
+        if($(applis[1]).attr('id')=='dvideo'){
+            $(applis[1]).css('display','inline-block').draggable();
+            $(applis[1]).find('p').empty();
+        }
+        // Selection de l'appli twitter
+        if($(applis[2]).attr('id')=='dtwitter'){
+            $(applis[2]).css('display','inline-block').draggable();
+            $(applis[3]).find('p').empty();
+        }
+        // Selection de l'appli photo
+        if($(applis[3]).attr('id')=='dphoto'){
+            $(applis[3]).css('display','inline-block').draggable();
+            $(applis[3]).find('p').empty();
+        }
+        // Sélection de l'appli Météo
+        if($(applis[4]).attr('id')=='dweather'){
+            $(applis[4]).css('display','inline-block').draggable();
+            $(applis[4]).find('p').empty();
+        }
+        // Sélection de l'appli News
+        if($(applis[5]).attr('id')=='dinfo'){
+            $(applis[5]).css('display','inline-block').draggable();
+            $(applis[5]).find('p').empty();
+        }
+    });
