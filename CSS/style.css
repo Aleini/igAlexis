@@ -144,6 +144,10 @@ button img {
     font-weight: bold;
 }
 
+.element a {
+    color: white;
+}
+
 #dwatch p {
     text-align: center;
     font-size: 50px;
