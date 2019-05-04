@@ -70,7 +70,7 @@ $(document).ready(function () {
             $(".cadre").css({
                 "border-color": "paleTurquoise",
                 "color": "paleTurquoise",
-                "background-image": "url(igAlexis/img/batarang.jpg)",
+                "background-image": "url(img/batarang.jpg)",
                 "background-position": "right",
                 "background-repeat": "no-repeat"
             });
@@ -120,7 +120,7 @@ $(document).ready(function () {
             $(".cadre").css({
                 "border-color": "darkgreen",
                 "color": "black",
-                "background-image": "url(../img/foret.jpg)",
+                "background-image": "url(img/foret.jpg)",
                 "background-position": "center",
                 "background-repeat": "no-repeat"
             });
@@ -145,7 +145,7 @@ $(document).ready(function () {
             $(".cadre").css({
                 "border-color": "dodgerblue",
                 "color": "black",
-                "background-image": "url(../img/plage.jpg)",
+                "background-image": "url(img/plage.jpg)",
                 "background-position": "center",
                 "background-repeat": "no-repeat"
             });
@@ -170,7 +170,7 @@ $(document).ready(function () {
             $(".cadre").css({
                 "border-color": "black",
                 "color": "white",
-                "background-image": "url(../img/assembled.jpg)",
+                "background-image": "url(img/assembled.jpg)",
                 "background-position": "center",
                 "background-repeat": "no-repeat"
             });
