@@ -60,6 +60,30 @@ $(document).ready(function () {
         var options = $("#Theme option").each(function () {
             value += $(this).val();
         });
+        if (options[0].selected == true) {
+            $("body").css("background-image", "url(img/bordeaux.jpg)");
+            $("#header a").css("color", "brown");
+            $("#Theme").css({
+                "color": "brown",
+                "background-color": "bisque"
+            });
+            $(".cadre").css({
+                "border-color": "brown",
+                "color": "white",
+                "background-image": "url(img/vignes.jpeg)",
+                "background-repeat": "no-repeat"
+            });
+            $(".element p").css({
+                "color": "white"
+            });
+            $(".Applisearch").css({
+                "border-color": "brown"
+            });
+            $(".bandeau").css({
+                "background-color": "brown",
+                "color": "white"
+            });
+        }
         if (options[1].selected == true) {
             $("body").css("background-image", "url(img/gotham.jpg)");
             $("#header a").css("color", "paleTurquoise");
@@ -69,13 +93,13 @@ $(document).ready(function () {
             });
             $(".cadre").css({
                 "border-color": "paleTurquoise",
-                "color": "paleTurquoise",
+                "color": "white",
                 "background-image": "url(img/batarang.jpg)",
                 "background-position": "right",
                 "background-repeat": "no-repeat"
             });
             $(".element p").css({
-                "color": "paleTurquoise"
+                "color": "white"
             });
             $(".Applisearch").css({
                 "border-color": "paleTurquoise"
@@ -94,13 +118,13 @@ $(document).ready(function () {
             });
             $(".cadre").css({
                 "border-color": "darkgrey",
-                "color": "darkgrey",
+                "color": "white",
                 "background-image": "url(img/empire.jpg)",
                 "background-position": "center",
                 "background-repeat": "no-repeat"
             });
             $(".element p").css({
-                "color": "grey"
+                "color": "white"
             });
             $(".Applisearch").css({
                 "border-color": "grey"
@@ -119,13 +143,13 @@ $(document).ready(function () {
             });
             $(".cadre").css({
                 "border-color": "darkgreen",
-                "color": "black",
+                "color": "white",
                 "background-image": "url(img/foret.jpg)",
                 "background-position": "center",
                 "background-repeat": "no-repeat"
             });
             $(".element p").css({
-                "color": "black"
+                "color": "white"
             });
             $(".Applisearch").css({
                 "border-color": "darkgreen"
@@ -144,13 +168,13 @@ $(document).ready(function () {
             });
             $(".cadre").css({
                 "border-color": "dodgerblue",
-                "color": "black",
-                "background-image": "url(img/plage.jpg)",
+                "color": "white",
+                "background-image": "url(img/ocean.png)",
                 "background-position": "center",
                 "background-repeat": "no-repeat"
             });
             $(".element p").css({
-                "color": "black"
+                "color": "white"
             });
             $(".Applisearch").css({
                 "border-color": "dodgerblue"

@@ -1,10 +1,9 @@
 body {
-    background-image: url(../img/neutre.jpg);
+    background-image: url(../img/bordeaux.jpg);
 }
 
 #header {
     font-size: 24px;
-    color: PaleTurquoise;
 }
 
 #header a {
@@ -46,7 +45,7 @@ strong {
 }
 
 #Theme {
-    background-color: rgb(204, 237, 248);
+    background-color: bisque;
     height: 35px;
     margin: 5px 0 0 30px;
     color: brown;
@@ -57,11 +56,13 @@ strong {
     border: 1px solid brown;
     height: 300px;
     width: 300px;
-    background-image: url(../img/neutre.jpg);
+    background-image: url(../img/vignes.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
     margin: 100px 0 0 50px;
     box-shadow: 30px 30px 10px black;
+    color:white;
     font-size: 18px;
-    color: black;
     display: none;
 }
 
@@ -139,7 +140,8 @@ button img {
 
 .element p {
     font-size: 18px;
-    color: black;
+    color: white;
+    font-weight: bold;
 }
 
 #dwatch p {
