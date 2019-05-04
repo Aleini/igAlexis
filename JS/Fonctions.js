@@ -70,7 +70,7 @@ $(document).ready(function () {
             $(".cadre").css({
                 "border-color": "paleTurquoise",
                 "color": "paleTurquoise",
-                "background-image": "url(../img/batarang.jpg)",
+                "background-image": "url(igAlexis/img/batarang.jpg)",
                 "background-position": "right",
                 "background-repeat": "no-repeat"
             });
@@ -95,7 +95,7 @@ $(document).ready(function () {
             $(".cadre").css({
                 "border-color": "darkgrey",
                 "color": "darkgrey",
-                "background-image": "url(../img/empire.jpg)",
+                "background-image": "url(img/empire.jpg)",
                 "background-position": "center",
                 "background-repeat": "no-repeat"
             });
@@ -219,7 +219,7 @@ $(document).ready(function () {
             if (reqY.readyState == 4 && reqY.status == 200) {
                 donnees = JSON.parse(reqY.responseText);
                 $("#dvideo .element iframe").remove();
-                $("#dvideo .element").append(`<iframe width="380" height="380" src="http://www.youtube.com/embed/` +
+                $("#dvideo .element").append(`<iframe width="380" height="380" src="https://www.youtube.com/embed/` +
                     donnees["items"][0]["id"]["videoId"] + `"?autoplay=1>`);
             }
         }
