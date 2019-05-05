@@ -61,7 +61,7 @@ strong {
     background-position: center;
     margin: 100px 0 0 50px;
     box-shadow: 30px 30px 10px black;
-    color:white;
+    color: white;
     font-size: 18px;
     display: none;
 }
@@ -77,9 +77,9 @@ strong {
 }
 
 #dvideo,
-#dphoto {
+#dphoto
+/*#dcinema*/ {
     position: absolute;
-    left: 0px;
     top: 400px;
     height: 400px;
     width: 400px;
@@ -105,8 +105,13 @@ strong {
     left: 1050px;
 }
 
+/*#dcinema {
+    left: 1200px;
+}*/
+
 #dvideo .Applisearch,
-#dphoto .Applisearch {
+#dphoto .Applisearch,
+#dcinema .Applisearch {
     width: 335px;
 }
 

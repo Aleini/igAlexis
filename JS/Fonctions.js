@@ -45,9 +45,18 @@ $(document).ready(function () {
                     $('#dinfo').css('overflow', 'auto');
                 });
                 break;
+            /*case 'cinema':
+                $('#dcinema').show().draggable();
+                $("#dcinema button").on('click', function () {
+                    DonneesCinema();
+                    $('#dcinema .element p').remove();
+                    $('#dcinema').css('overflow', 'auto');
+                });
+                break;*/
         }
     });
 
+    // Fermer les widgets
     $(".bandeau img[src='img/croix.png']").on("click", function () {
         $(this).parent().parent().hide();
         $(this).parent().next().next().children().remove();
@@ -297,7 +306,7 @@ $(document).ready(function () {
         reqP.onreadystatechange = function () {
             if (reqP.readyState == 4 && reqP.status == 200) {
                 donnees = JSON.parse(reqP.responseText);
-                $('#dphoto .element p').remove();
+                $("#dphoto .element p").remove();
                 for (var i = 0; i < 5; i++) {
                     $("#dphoto .element").append("<p><img src='https://farm" + donnees["photos"]["photo"][i]["farm"] +
                         ".staticflickr.com/" +
@@ -309,4 +318,18 @@ $(document).ready(function () {
         }
         reqP.send(null);
     }
+
+    /*function DonneesCinema(){
+        var reqC = new XMLHttpRequest();
+        reqC.open("GET", 'https://api.waatch.co/v1/movies/299534?language=fr&&country=FR&api_key=90CD92EF-42A4-4CD7-BD17-A7D38B46C663', true);
+        reqC.onreadystatechange = function () {
+            if (reqC.readyState == 4 && reqC.status == 200) {
+                donnees = JSON.parse(reqC.responseText);
+                $("#dcinema .element p").remove();
+                //$("#dcinema .element").append("<p>" + donnees["overview"]["title"] + "</p>");
+                console.log("coucou");
+            }
+        }
+        reqC.send(null);
+    }*/
 });
