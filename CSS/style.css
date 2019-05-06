@@ -175,7 +175,18 @@ button img {
     width: 70px;
 }
 
+#dweather span{
+    margin-left:10px;
+    font-size: 16px;
+}
+
 .Applisearch {
     width: 235px;
     border-color: brown;
+}
+
+.help{
+    border : 1px solid #1877D5;
+    background : #84BEFD;
+    opacity : 0.5;
 }

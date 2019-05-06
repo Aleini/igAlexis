@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 <body>
@@ -24,8 +25,10 @@
                 <!--<span id="cinema"><img src="img/cinema.png" alt="clap de cinema"></span>-->
             </div>
             <div class="col-md-4">
-                <input type="search" name="search" id="search" placeholder="Votre recherche">
-                <button><img src="img/loupe.png" alt="loupe" id="recherche"></button>
+                <form method="get" action="http://www.google.com/search">
+                    <input type="search" name="q" id="search" placeholder="Votre recherche">
+                    <button><img src="img/loupe.png" alt="loupe" id="recherche"></button>
+                </form>
             </div>
             <div class="col-md-4">
                 <select name="Theme" id="Theme">

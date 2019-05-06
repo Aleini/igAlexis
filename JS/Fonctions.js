@@ -32,13 +32,30 @@ $(document).ready(function () {
                 break;
             case 'weather':
                 $('#dweather').show().draggable();
+                $("#dweather").resizable({
+                    aspectRatio:true,
+                    minWidth:310,
+                    maxWidth:400,
+                    minHeight:310,
+                    maxHeight:400,
+                    helper:"help"
+                });
                 $('#dweather button').on('click', function () {
                     DonneesMeteo();
                     $('#dweather .element p').remove();
+                    $('#dweather').css('overflow','auto');
                 });
                 break;
             case 'info':
                 $('#dinfo').show().draggable();
+                $("#dinfo").resizable({
+                    aspectRatio:true,
+                    minWidth:310,
+                    maxWidth:400,
+                    minHeight:310,
+                    maxHeight:400,
+                    helper:"help"
+                });
                 $("#dinfo button").on('click', function () {
                     DonneesInfo();
                     $('#dinfo .element p').remove();
@@ -178,7 +195,7 @@ $(document).ready(function () {
             $(".cadre").css({
                 "border-color": "dodgerblue",
                 "color": "white",
-                "background-image": "url(img/ocean.png)",
+                "background-image": "url(img/ocean.jpg)",
                 "background-position": "center",
                 "background-repeat": "no-repeat"
             });
@@ -190,7 +207,7 @@ $(document).ready(function () {
             });
             $(".bandeau").css({
                 "background-color": "dodgerBlue",
-                "color": "black"
+                "color": "white"
             });
         }
         if (options[5].selected == true) {
@@ -262,7 +279,7 @@ $(document).ready(function () {
     function DonneesMeteo() {
         var query = $("#dweather .Applisearch").val();
         var reqM = new XMLHttpRequest();
-        reqM.open("GET", 'https://api.apixu.com/v1/current.json?key=2d4ae1ea829f467eb04184711191104&lang=fr&q=' + query, true);
+        reqM.open("GET", 'https://api.apixu.com/v1/forecast.json?key=2d4ae1ea829f467eb04184711191104&lang=fr&days=5&q=' + query, true);
         reqM.onreadystatechange = function () {
             if (reqM.readyState == 4 && reqM.status == 200) {
                 donnees = JSON.parse(reqM.responseText);
@@ -273,7 +290,16 @@ $(document).ready(function () {
                     " <br/> Date : " + donnees["location"]["localtime"] +
                     " <br/> Météo : " + donnees["current"]["condition"]["text"] +
                     " <br/> Température : " + donnees["current"]["temp_c"] + "°" +
-                    " <br/> <img src=http:" + donnees["current"]["condition"]["icon"] + " </p>");
+                    " <br/> <img src=http:" + donnees["current"]["condition"]["icon"] + 
+                    " ><br/> Prévisions des 4 prochains jours : " +
+                    " <br/> <img src=http:" + donnees["forecast"]["forecastday"]["1"]["day"]["condition"]["icon"] + 
+                    " ><img src=http:" + donnees["forecast"]["forecastday"]["2"]["day"]["condition"]["icon"] + 
+                    " ><img src=http:" + donnees["forecast"]["forecastday"]["3"]["day"]["condition"]["icon"] + 
+                    " ><img src=http:" + donnees["forecast"]["forecastday"]["4"]["day"]["condition"]["icon"] +
+                    " ><br/><span> T° :" + donnees["forecast"]["forecastday"]["1"]["day"]["avgtemp_c"] + "</span>"  +
+                    " <span> T° :" + donnees["forecast"]["forecastday"]["2"]["day"]["avgtemp_c"] + "</span>" +  
+                    " <span> T° :" + donnees["forecast"]["forecastday"]["3"]["day"]["avgtemp_c"] + "</span>" + 
+                    " <span> T° :" + donnees["forecast"]["forecastday"]["4"]["day"]["avgtemp_c"] + "</span></p>");
             }
         }
         reqM.send(null);
