@@ -7,10 +7,19 @@ $(document).ready(function () {
             case 'watch':
                 $('#dwatch').show().draggable();
                 $('#dwatch p').remove();
-                $('#dwatch').append('<p>' + Jour() + '<br/>' + Heure() + '</p>');
+                $('#dwatch').append('<p>' + Jour() + '</p>');
+                $('#dwatch').append('<p id=Timer></p>');
                 break;
             case 'video':
                 $('#dvideo').show().draggable();
+                $("#dvideo").resizable({
+                    aspectRatio: true,
+                    minWidth: 410,
+                    maxWidth: 700,
+                    minHeight: 410,
+                    maxHeight: 700,
+                    helper: "help"
+                });
                 $("#dvideo button").on('click', function () {
                     DonneesYouTube();
                     $('#dvideo .element iframe').remove();
@@ -33,28 +42,28 @@ $(document).ready(function () {
             case 'weather':
                 $('#dweather').show().draggable();
                 $("#dweather").resizable({
-                    aspectRatio:true,
-                    minWidth:310,
-                    maxWidth:400,
-                    minHeight:310,
-                    maxHeight:400,
-                    helper:"help"
+                    aspectRatio: true,
+                    minWidth: 310,
+                    maxWidth: 400,
+                    minHeight: 310,
+                    maxHeight: 400,
+                    helper: "help"
                 });
                 $('#dweather button').on('click', function () {
                     DonneesMeteo();
                     $('#dweather .element p').remove();
-                    $('#dweather').css('overflow','auto');
+                    $('#dweather').css('overflow', 'auto');
                 });
                 break;
             case 'info':
                 $('#dinfo').show().draggable();
                 $("#dinfo").resizable({
-                    aspectRatio:true,
-                    minWidth:310,
-                    maxWidth:400,
-                    minHeight:310,
-                    maxHeight:400,
-                    helper:"help"
+                    aspectRatio: true,
+                    minWidth: 310,
+                    maxWidth: 400,
+                    minHeight: 310,
+                    maxHeight: 400,
+                    helper: "help"
                 });
                 $("#dinfo button").on('click', function () {
                     DonneesInfo();
@@ -62,14 +71,14 @@ $(document).ready(function () {
                     $('#dinfo').css('overflow', 'auto');
                 });
                 break;
-            /*case 'cinema':
-                $('#dcinema').show().draggable();
-                $("#dcinema button").on('click', function () {
-                    DonneesCinema();
-                    $('#dcinema .element p').remove();
-                    $('#dcinema').css('overflow', 'auto');
-                });
-                break;*/
+                /*case 'cinema':
+                    $('#dcinema').show().draggable();
+                    $("#dcinema button").on('click', function () {
+                        DonneesCinema();
+                        $('#dcinema .element p').remove();
+                        $('#dcinema').css('overflow', 'auto');
+                    });
+                    break;*/
         }
     });
 
@@ -121,7 +130,7 @@ $(document).ready(function () {
                 "border-color": "paleTurquoise",
                 "color": "white",
                 "background-image": "url(img/batarang.jpg)",
-                "background-position": "right",
+                "background-position": "center",
                 "background-repeat": "no-repeat"
             });
             $(".element p").css({
@@ -269,8 +278,13 @@ $(document).ready(function () {
             if (reqY.readyState == 4 && reqY.status == 200) {
                 donnees = JSON.parse(reqY.responseText);
                 $("#dvideo .element iframe").remove();
-                $("#dvideo .element").append(`<iframe width="380" height="380" src="https://www.youtube.com/embed/` +
-                    donnees["items"][0]["id"]["videoId"] + `"?autoplay=1>`);
+                $("#dvideo .element").append(`<iframe src="https://www.youtube.com/embed/` +
+                    donnees["items"][0]["id"]["videoId"] + `"?autoplay=0>`);
+                $("#dvideo .element iframe").css({
+                    "width":"100%",
+                    "height":"100%",
+                    "position":"absolute"
+                });
             }
         }
         reqY.send(null);
@@ -290,15 +304,15 @@ $(document).ready(function () {
                     " <br/> Date : " + donnees["location"]["localtime"] +
                     " <br/> Météo : " + donnees["current"]["condition"]["text"] +
                     " <br/> Température : " + donnees["current"]["temp_c"] + "°" +
-                    " <br/> <img src=http:" + donnees["current"]["condition"]["icon"] + 
+                    " <br/> <img src=http:" + donnees["current"]["condition"]["icon"] +
                     " ><br/> Prévisions des 4 prochains jours : " +
-                    " <br/> <img src=http:" + donnees["forecast"]["forecastday"]["1"]["day"]["condition"]["icon"] + 
-                    " ><img src=http:" + donnees["forecast"]["forecastday"]["2"]["day"]["condition"]["icon"] + 
-                    " ><img src=http:" + donnees["forecast"]["forecastday"]["3"]["day"]["condition"]["icon"] + 
+                    " <br/> <img src=http:" + donnees["forecast"]["forecastday"]["1"]["day"]["condition"]["icon"] +
+                    " ><img src=http:" + donnees["forecast"]["forecastday"]["2"]["day"]["condition"]["icon"] +
+                    " ><img src=http:" + donnees["forecast"]["forecastday"]["3"]["day"]["condition"]["icon"] +
                     " ><img src=http:" + donnees["forecast"]["forecastday"]["4"]["day"]["condition"]["icon"] +
-                    " ><br/><span> T° :" + donnees["forecast"]["forecastday"]["1"]["day"]["avgtemp_c"] + "</span>"  +
-                    " <span> T° :" + donnees["forecast"]["forecastday"]["2"]["day"]["avgtemp_c"] + "</span>" +  
-                    " <span> T° :" + donnees["forecast"]["forecastday"]["3"]["day"]["avgtemp_c"] + "</span>" + 
+                    " ><br/><span> T° :" + donnees["forecast"]["forecastday"]["1"]["day"]["avgtemp_c"] + "</span>" +
+                    " <span> T° :" + donnees["forecast"]["forecastday"]["2"]["day"]["avgtemp_c"] + "</span>" +
+                    " <span> T° :" + donnees["forecast"]["forecastday"]["3"]["day"]["avgtemp_c"] + "</span>" +
                     " <span> T° :" + donnees["forecast"]["forecastday"]["4"]["day"]["avgtemp_c"] + "</span></p>");
             }
         }
@@ -316,14 +330,19 @@ $(document).ready(function () {
         return dateDuJour.toLocaleDateString('fr-FR', options);
     }
 
-    function Heure() {
-        var dateDuJour = new Date();
-        var options = {
-            hour: '2-digit',
-            minute: '2-digit'
-        };
-        return dateDuJour.toLocaleTimeString('fr-FR', options);
+    function horloge() {
+        var timer = new Date();
+        var h, m, s;
+        h = timer.getHours();
+        if (h < 10) h = "0" + h;
+        m = timer.getMinutes();
+        if (m < 10) m = "0" + m;
+        s = timer.getSeconds();
+        if (s < 10) s = "0" + s;
+        $('#dwatch p#Timer').html(h + ' : ' + m + ' : ' + s);
     }
+
+    var tm = setInterval(horloge, 1000);
 
     function DonneesPhoto() {
         var query = $("#dphoto .Applisearch").val();

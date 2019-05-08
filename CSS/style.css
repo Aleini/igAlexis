@@ -1,5 +1,8 @@
 body {
     background-image: url(../img/bordeaux.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 #header {
@@ -25,7 +28,7 @@ body {
 }
 
 #search {
-    margin-top: 5px;
+    margin: 5px 0 0 160px;
 }
 
 button {
@@ -47,7 +50,7 @@ strong {
 #Theme {
     background-color: bisque;
     height: 35px;
-    margin: 5px 0 0 30px;
+    margin: 5px 0 0 280px;
     color: brown;
     font-size: 20px;
 }
@@ -56,8 +59,9 @@ strong {
     border: 1px solid brown;
     height: 300px;
     width: 300px;
-    background-image: url(../img/vignes.jpeg);
-    background-repeat: no-repeat;
+    background-image: url(../img/tonneau.jpg);
+    background-size: cover;
+    background-attachment: scroll;
     background-position: center;
     margin: 100px 0 0 50px;
     box-shadow: 30px 30px 10px black;
@@ -112,7 +116,7 @@ strong {
 #dvideo .Applisearch,
 #dphoto .Applisearch,
 #dcinema .Applisearch {
-    width: 335px;
+    width: 88%;
 }
 
 .bandeau {
@@ -181,7 +185,7 @@ button img {
 }
 
 .Applisearch {
-    width: 235px;
+    width: 84%;
     border-color: brown;
 }
 
