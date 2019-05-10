@@ -253,7 +253,7 @@ $(document).ready(function () {
     function DonneesInfo() {
         var query = $("#dinfo .Applisearch").val();
         var reqI = new XMLHttpRequest();
-        reqI.open("GET", 'https://newsapi.org/v2/everything?q=' + query + '&from=2019-04-08&language=fr&sortBy=popularity&apiKey=34303e0e54684ed19a95b0971d388be8', true);
+        reqI.open("GET", 'https://newsapi.org/v2/everything?q=' + query + '&language=fr&sortBy=popularity&apiKey=34303e0e54684ed19a95b0971d388be8', true);
         reqI.onreadystatechange = function () {
             if (reqI.readyState == 4 && reqI.status == 200) {
                 donnees = JSON.parse(reqI.responseText);
@@ -264,6 +264,7 @@ $(document).ready(function () {
                             <a href="` + donnees["articles"][i]["url"] + `">` +
                         donnees["articles"][i]["title"] + "</a> - " +
                         donnees["articles"][i]["source"]["name"] + "</p>");
+                        console.log(donnees);
                 }
             }
         }
