@@ -54,14 +54,14 @@ $(document).ready(function () {
                     $('#dinfo .element p').remove();
                 });
                 break;
-                /*case 'cinema':
-                    $('#dcinema').show().draggable();
-                    $("#dcinema button").on('click', function () {
-                        DonneesCinema();
-                        $('#dcinema .element p').remove();
-                        $('#dcinema').css('overflow', 'auto');
-                    });
-                    break;*/
+            case 'cinema':
+                $('#dcinema').show().draggable();
+                $("#dcinema button").on('click', function () {
+                    DonneesCinema();
+                    $('#dcinema .element p').remove();
+                    $('#dcinema').css('overflow', 'auto');
+                });
+                break;
         }
     });
 
@@ -269,7 +269,6 @@ $(document).ready(function () {
 
     function loadTheme() {
         var theme = window.localStorage.getItem("theme");
-        console.log(theme);
         if (theme == "bordeaux") {
             $("body").css("background-image", "url(img/bordeaux.jpg)");
             $("#header a").css("color", "brown");
@@ -468,7 +467,6 @@ $(document).ready(function () {
                             <a href="` + donnees["articles"][i]["url"] + `">` +
                         donnees["articles"][i]["title"] + "</a> - " +
                         donnees["articles"][i]["source"]["name"] + "</p>");
-                    console.log(donnees);
                 }
             }
         }
@@ -569,17 +567,28 @@ $(document).ready(function () {
         reqP.send(null);
     }
 
-    /*function DonneesCinema(){
+    function DonneesCinema() {
+        var query = $("#dcinema .Applisearch").val();
         var reqC = new XMLHttpRequest();
-        reqC.open("GET", 'https://api.waatch.co/v1/movies/299534?language=fr&&country=FR&api_key=90CD92EF-42A4-4CD7-BD17-A7D38B46C663', true);
+        reqC.open("GET", 'https://api.themoviedb.org/3/search/multi?api_key=caaac4e14164b677822839a3e0fa0661&language=fr&page=1&include_adult=false&query=' + query, true);
         reqC.onreadystatechange = function () {
             if (reqC.readyState == 4 && reqC.status == 200) {
                 donnees = JSON.parse(reqC.responseText);
-                $("#dcinema .element p").remove();
-                //$("#dcinema .element").append("<p>" + donnees["overview"]["title"] + "</p>");
-                console.log("coucou");
-            }
+                if (donnees["results"]["0"]["media_type"] == "movie") {
+                    $("#dcinema .element p").remove();
+                    $("#dcinema .element").append("<p><img src='https://image.tmdb.org/t/p/w400" + donnees["results"]["0"]["poster_path"] + "'>" +
+                    "<br/> Date de sortie : " + donnees["results"]["0"]["release_date"] +
+                    "<br/> Evaluation TMDB : " + donnees["results"]["0"]["vote_average"] + "/10" +
+                    "<br/><br/> Synopsis : " + donnees["results"]["0"]["overview"] + "</p>"
+                    )};
+                if(donnees["results"]["0"]["media_type"]=="person"){
+                    $("#dcinema .element p").remove();
+                    $("#dcinema .element").append("<p><img src='https://image.tmdb.org/t/p/w400" + donnees["results"]["0"]["profile_path"] + "'>" + 
+                    "<br/><br/> Popularité TMDB : " + donnees["results"]["0"]["popularity"] +
+                    "<br/> A joué dans : " + donnees["results"]["0"]["known_for"]["0"]["title"] + "<br/>" + donnees["results"]["0"]["known_for"]["1"]["title"] + "<br/>" + donnees["results"]["0"]["known_for"]["2"]["title"] + "</p>"
+                )};
+            };
         }
         reqC.send(null);
-    }*/
+    }
 });

@@ -83,7 +83,6 @@ strong {
 
 #dvideo,
 #dphoto
-/*#dcinema*/
 {
     position: absolute;
     top: 400px;
@@ -114,9 +113,12 @@ strong {
     left: 1050px;
 }
 
-/*#dcinema {
+#dcinema {
+    position: absolute;
+    top:400px;
+    width: 400px;
     left: 1200px;
-}*/
+}
 
 .Applisearch {
     width: 84%;
@@ -127,11 +129,6 @@ strong {
 #dphoto .Applisearch,
 #dcinema .Applisearch {
     width: 88%;
-}
-
-#content>[class*='col-'] {
-    padding-right: 0;
-    padding-left: 0;
 }
 
 .bandeau {
