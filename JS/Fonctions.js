@@ -90,7 +90,7 @@ $(document).ready(function () {
             $(".cadre").css({
                 "border-color": "brown",
                 "color": "white",
-                "background-image": "url(img/vignes.jpeg)",
+                "background-image": "url(img/tonneau.jpg)",
                 "background-repeat": "no-repeat"
             });
             $(".element p").css({
@@ -284,7 +284,7 @@ $(document).ready(function () {
             $(".cadre").css({
                 "border-color": "brown",
                 "color": "white",
-                "background-image": "url(img/vignes.jpeg)",
+                "background-image": "url(img/tonneau.jpg)",
                 "background-repeat": "no-repeat"
             });
             $(".element p").css({
