@@ -3,6 +3,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 #header {
@@ -13,51 +14,50 @@ body {
     color: brown;
 }
 
-#header span img {
-    height: 50px;
-    margin: 0 0 5px 10px;
-}
-
-#recherche {
-    height: 30px;
-    width: 30px;
+#header ul li img {
+    height: 40px;
+    width: 40px;
+    margin: 8px 0 5px 10px;
 }
 
 #header a:hover {
-    color: rgb(90, 22, 2);
+    color: bisque;
+}
+
+ul li {
+    display: inline;
+    list-style-type: none;
 }
 
 #search {
-    margin: 5px 0 0 160px;
+    margin: 5px 0 0 0;
+    width: 100%;
 }
 
-button {
+#btnG {
     background-color: white;
+    margin: 6px 0 0 0;
 }
 
 strong {
     font-size: 30px;
 }
 
-#watch {
-    padding-left: 40px;
-}
-
-#header span img:hover {
+#header ul li img:hover {
     cursor: pointer;
 }
 
 #Theme {
     background-color: bisque;
     height: 35px;
-    margin: 5px 0 0 280px;
+    margin: 5px 0 0 0;
     color: brown;
     font-size: 20px;
 }
 
 .cadre {
     border: 1px solid brown;
-    height: 300px;
+    height: auto;
     width: 300px;
     background-image: url(../img/tonneau.jpg);
     background-size: cover;
@@ -77,20 +77,25 @@ strong {
 
 #dtwitter {
     position: absolute;
+    height:300px;
     left: 350px;
 }
 
 #dvideo,
 #dphoto
-/*#dcinema*/ {
+/*#dcinema*/
+{
     position: absolute;
     top: 400px;
     height: 400px;
     width: 400px;
 }
 
+#dvideo{
+    left:0;
+}
+
 #dphoto {
-    position: absolute;
     left: 600px;
 }
 
@@ -113,15 +118,25 @@ strong {
     left: 1200px;
 }*/
 
+.Applisearch {
+    width: 84%;
+    border-color: brown;
+}
+
 #dvideo .Applisearch,
 #dphoto .Applisearch,
 #dcinema .Applisearch {
     width: 88%;
 }
 
+#content>[class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
 .bandeau {
     height: 30px;
-    width: inherit;
+    max-width: 100%;
     background-color: brown;
     color: white;
     font-weight: bold;
@@ -145,6 +160,10 @@ button img {
 
 .bandeau img[src="img/croix.png"]:hover {
     cursor: pointer;
+}
+
+.bandeau:hover{
+    cursor: grab;
 }
 
 .element p {
@@ -179,18 +198,12 @@ button img {
     width: 70px;
 }
 
-#dweather span{
-    margin-left:10px;
+#dweather div {
     font-size: 16px;
 }
 
-.Applisearch {
-    width: 84%;
-    border-color: brown;
-}
-
-.help{
-    border : 1px solid #1877D5;
-    background : #84BEFD;
-    opacity : 0.5;
+.help {
+    border: 1px solid #1877D5;
+    background: #84BEFD;
+    opacity: 0.5;
 }

@@ -16,83 +16,97 @@
 <body>
     <div class="container-fluid">
         <div class="row" id="header">
-            <div class="col-md-4"><a href="http://www.igoogleportal.com/">iGoogle</a>
-                <span id="watch"><img src="img/watch.png" alt="cadran de montre"></span>
-                <span id="video"><img src="img/youtube.png" alt="logo youtube"></span>
-                <span id="twitter"><img src="img/twitter.png" alt="logo twitter"></span>
-                <span id="photo"><img src="img/flickr.png" alt="logo flickr"></span>
-                <span id="weather"><img src="img/weather.png" alt="image nuage et soleil"></span>
-                <span id="info"><img src="img/newspaper.png" alt="journal en papier"></span>
-                <!--<span id="cinema"><img src="img/cinema.png" alt="clap de cinema"></span>-->
+            <div class="col-md-5 col-sm-5 col-xs-6" id="widgets">
+                <ul>
+                    <li class="col-md-1 col-xs-1"><a href="http://www.igoogleportal.com/">iGoogle</a></li>
+                    <li id="watch" class="col-md-1 col-xs-1"><img src="img/watch.png" alt="cadran de montre">
+                    </li>
+                    <li id="video" class="col-md-1 col-xs-1"><img src="img/youtube.png" alt="logo youtube">
+                    </li>
+                    <li id="twitter" class="col-md-1 col-xs-1"><img src="img/twitter.png" alt="logo twitter">
+                    </li>
+                    <li id="photo" class="col-md-1 col-xs-1"><img src="img/flickr.png" alt="logo flickr"></li>
+                    <li id="weather" class="col-md-1 col-xs-1"><img src="img/weather.png" alt="image nuage et soleil">
+                    </li>
+                    <li id="info" class="col-md-1 col-xs-1"><img src="img/newspaper.png" alt="journal en papier"></li>
+                </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5 col-sm-5 col-xs-4" id="searchbarG">
                 <form method="get" action="http://www.google.com/search">
-                    <input type="search" name="q" id="search" placeholder="Google Search">
-                    <button><img src="img/loupe.png" alt="loupe" id="recherche"></button>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-5 col-xs-6">
+                            <input type="search" name="q" id="search" placeholder="Google Search">
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-1">
+                            <input type="submit" id="btnG" value="OK">
+                        </div>
+                    </div>
                 </form>
             </div>
-            <div class="col-md-4" id="ppp">
+            <div class="col-md-2 col-sm-2 col-xs-2" id="choixtheme">
                 <select name="Theme" id="Theme">
-                    <option value="" selected>Thème Bordeaux</option>
+                    <option value="bordeaux" selected>Thème Bordeaux</option>
                     <option value="batman">Thème Batman</option>
                     <option value="starwars">Thème Starwars</option>
                     <option value="nature">Thème Nature</option>
                     <option value="mer">Thème Mer</option>
-                    <option value="mer">Thème Avengers</option>
+                    <option value="avengers">Thème Avengers</option>
                 </select>
             </div>
         </div>
     </div>
-    <div id="content">
-        <div class="cadre" id='dwatch'>
-            <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
-                Horloge
-                <img src='img/watch.png' alt='cadran de montre'>
+    </div>
+    <div class="container">
+        <div class="row" id="content">
+            <div class="cadre" id='dwatch'>
+                <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
+                    Horloge
+                    <img src='img/watch.png' alt='cadran de montre'>
+                </div>
             </div>
-        </div>
-        <div class="cadre" id='dvideo'>
-            <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
-                YouTube
-                <img src='img/youtube.png' alt='logo youtube'>
+            <div class="cadre" id='dvideo'>
+                <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
+                    YouTube
+                    <img src='img/youtube.png' alt='logo youtube'>
+                </div>
+                <div><input class="Applisearch" type="text" name="search" placeholder="Votre recherche">
+                    <button><img src="img/loupe.png" alt="loupe"></button></div>
+                <div class="element"></div>
             </div>
-            <div><input class="Applisearch" type="text" name="search" placeholder="Votre recherche">
-                <button><img src="img/loupe.png" alt="loupe"></button></div>
-            <div class="element"></div>
-        </div>
-        <div class="cadre" id='dtwitter'>
-            <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
-                Twitter
-                <img src='img/twitter.png' alt='logo Twitter'>
+            <div class="cadre" id='dtwitter'>
+                <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
+                    Twitter
+                    <img src='img/twitter.png' alt='logo Twitter'>
+                </div>
             </div>
-        </div>
-        <div class="cadre" id='dphoto'>
-            <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
-                Flickr
-                <img src='img/flickr.png' alt='logo flickr'>
+            <div class="cadre" id='dphoto'>
+                <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
+                    Flickr
+                    <img src='img/flickr.png' alt='logo flickr'>
+                </div>
+                <div><input class="Applisearch" type="text" name="search" placeholder="Votre recherche">
+                    <button><img src="img/loupe.png" alt="loupe"></button></div>
+                <div class="element"></div>
             </div>
-            <div><input class="Applisearch" type="text" name="search" placeholder="Votre recherche">
-                <button><img src="img/loupe.png" alt="loupe"></button></div>
-            <div class="element"></div>
-        </div>
-        <div class="cadre" id='dweather'>
-            <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
-                Météo
-                <img src='img/weather.png' alt='nuage et soleil'>
+            <div class="cadre" id='dweather'>
+                <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
+                    Météo
+                    <img src='img/weather.png' alt='nuage et soleil'>
+                </div>
+                <div><input class="Applisearch" type="text" name="search" placeholder="Votre recherche">
+                    <button><img src="img/loupe.png" alt="loupe"></button></div>
+                <div class="element"></div>
             </div>
-            <div><input class="Applisearch" type="text" name="search" placeholder="Votre recherche">
-                <button><img src="img/loupe.png" alt="loupe"></button></div>
-            <div class="element"></div>
-        </div>
-        <div class="cadre" id='dinfo'>
-            <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
-                News
-                <img src='img/newspaper.png' alt='journal'>
+            <div class="cadre" id='dinfo'>
+                <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
+                    News
+                    <img src='img/newspaper.png' alt='journal'>
+                </div>
+                <div><input class="Applisearch" type="text" name="search" placeholder="Votre recherche">
+                    <button><img src="img/loupe.png" alt="loupe"></button></div>
+                <div class="element"></div>
             </div>
-            <div><input class="Applisearch" type="text" name="search" placeholder="Votre recherche">
-                <button><img src="img/loupe.png" alt="loupe"></button></div>
-            <div class="element"></div>
-        </div>
-        <!--<div class="cadre" id='dcinema'>
+            <!--<div class="cadre" id='dcinema'>
             <div class="bandeau"><img src="img/croix.png" alt="croix de fermeture de fenetre">
                 Cinema
                 <img src='img/cinema.png' alt='clap cinema'>
@@ -101,6 +115,7 @@
                 <button><img src="img/loupe.png" alt="loupe"></button></div>
             <div class="element"></div>
         </div>-->
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

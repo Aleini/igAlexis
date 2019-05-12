@@ -1,8 +1,9 @@
 $(document).ready(function () {
-
+    loadTheme();
+    loadOptions();
     /* Gestion des widgets */
 
-    $('#header span').on('click', function () {
+    $('#header li').on('click', function () {
         switch ($(this).attr('id')) {
             case 'watch':
                 $('#dwatch').show().draggable();
@@ -29,7 +30,7 @@ $(document).ready(function () {
             case 'twitter':
                 $('#dtwitter').show().draggable();
                 $('#dtwitter p').remove();
-                $('#dtwitter').append('<p><a class="twitter-timeline" href="https://twitter.com/sofoot?ref_src=twsrc%5Etfw" data-height="275">Tweets by sofoot</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></a></p>');
+                $('#dtwitter').append('<p><a class="twitter-timeline" href="https://twitter.com/sofoot?ref_src=twsrc%5Etfw" data-height="268">Tweets by sofoot</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></a></p>');
                 break;
             case 'photo':
                 $('#dphoto').show().draggable();
@@ -41,34 +42,16 @@ $(document).ready(function () {
                 break;
             case 'weather':
                 $('#dweather').show().draggable();
-                $("#dweather").resizable({
-                    aspectRatio: true,
-                    minWidth: 310,
-                    maxWidth: 400,
-                    minHeight: 310,
-                    maxHeight: 400,
-                    helper: "help"
-                });
                 $('#dweather button').on('click', function () {
                     DonneesMeteo();
                     $('#dweather .element p').remove();
-                    $('#dweather').css('overflow', 'auto');
                 });
                 break;
             case 'info':
                 $('#dinfo').show().draggable();
-                $("#dinfo").resizable({
-                    aspectRatio: true,
-                    minWidth: 310,
-                    maxWidth: 400,
-                    minHeight: 310,
-                    maxHeight: 400,
-                    helper: "help"
-                });
                 $("#dinfo button").on('click', function () {
                     DonneesInfo();
                     $('#dinfo .element p').remove();
-                    $('#dinfo').css('overflow', 'auto');
                 });
                 break;
                 /*case 'cinema':
@@ -91,13 +74,15 @@ $(document).ready(function () {
     /* Gestion des différents thèmes */
 
     $("#Theme").on('click', function () {
-        var value = "";
-        var options = $("#Theme option").each(function () {
-            value += $(this).val();
-        });
-        if (options[0].selected == true) {
+        $("#Theme option").each(function () {});
+        if ($("#Theme").val() == "bordeaux") {
             $("body").css("background-image", "url(img/bordeaux.jpg)");
             $("#header a").css("color", "brown");
+            $("#header a").hover(function () {
+                $(this).css("color", "bisque");
+            }, function () {
+                $(this).css("color", "brown");
+            });
             $("#Theme").css({
                 "color": "brown",
                 "background-color": "bisque"
@@ -119,9 +104,14 @@ $(document).ready(function () {
                 "color": "white"
             });
         }
-        if (options[1].selected == true) {
+        if ($("#Theme").val() == "batman") {
             $("body").css("background-image", "url(img/gotham.jpg)");
             $("#header a").css("color", "paleTurquoise");
+            $("#header a").hover(function () {
+                $(this).css("color", "deepskyblue");
+            }, function () {
+                $(this).css("color", "paleTurquoise");
+            });
             $("#Theme").css({
                 "color": "paleTurquoise",
                 "background-color": "black"
@@ -144,9 +134,14 @@ $(document).ready(function () {
                 "color": "black"
             });
         }
-        if (options[2].selected == true) {
+        if ($("#Theme").val() == "starwars") {
             $("body").css("background-image", "url(img/starwars.jpg)");
-            $("#header a").css("color", "white");
+            $("#header a").css("color", "darkgrey");
+            $("#header a").hover(function () {
+                $(this).css("color", "white");
+            }, function () {
+                $(this).css("color", "darkgrey");
+            });
             $("#Theme").css({
                 "color": "white",
                 "background-color": "black"
@@ -169,9 +164,14 @@ $(document).ready(function () {
                 "color": "black"
             });
         }
-        if (options[3].selected == true) {
+        if ($("#Theme").val() == "nature") {
             $("body").css("background-image", "url(img/nature.jpg)");
             $("#header a").css("color", "white");
+            $("#header a").hover(function () {
+                $(this).css("color", "darkgreen");
+            }, function () {
+                $(this).css("color", "white");
+            });
             $("#Theme").css({
                 "color": "white",
                 "background-color": "darkgreen"
@@ -194,9 +194,14 @@ $(document).ready(function () {
                 "color": "white"
             });
         }
-        if (options[4].selected == true) {
+        if ($("#Theme").val() == "mer") {
             $("body").css("background-image", "url(img/mer.jpg)");
             $("#header a").css("color", "white");
+            $("#header a").hover(function () {
+                $(this).css("color", "dodgerblue");
+            }, function () {
+                $(this).css("color", "white");
+            });
             $("#Theme").css({
                 "color": "white",
                 "background-color": "dodgerblue"
@@ -219,9 +224,14 @@ $(document).ready(function () {
                 "color": "white"
             });
         }
-        if (options[5].selected == true) {
+        if ($("#Theme").val() == "avengers") {
             $("body").css("background-image", "url(img/avengers.jpg)");
             $("#header a").css("color", "white");
+            $("#header a").hover(function () {
+                $(this).css("color", "midnightblue");
+            }, function () {
+                $(this).css("color", "white");
+            });
             $("#Theme").css({
                 "color": "white",
                 "background-color": "black"
@@ -240,12 +250,206 @@ $(document).ready(function () {
                 "border-color": "black"
             });
             $(".bandeau").css({
+                "background-color": "midnightblue",
+                "color": "white"
+            });
+        }
+        window.localStorage.setItem("theme", $("#Theme").val());
+    });
+
+    /* Récupération des thèmes avec le localStorage */
+    function loadOptions() {
+        $("#Theme").change(function () {
+            localStorage.setItem('choixtheme', this.value);
+        });
+        if (localStorage.getItem('choixtheme')) {
+            $('#Theme').val(localStorage.getItem('choixtheme'));
+        }
+    }
+
+    function loadTheme() {
+        var theme = window.localStorage.getItem("theme");
+        console.log(theme);
+        if (theme == "bordeaux") {
+            $("body").css("background-image", "url(img/bordeaux.jpg)");
+            $("#header a").css("color", "brown");
+            $("#header a").hover(function () {
+                $(this).css("color", "bisque");
+            }, function () {
+                $(this).css("color", "brown");
+            });
+            $("#Theme").css({
+                "color": "brown",
+                "background-color": "bisque"
+            });
+            $(".cadre").css({
+                "border-color": "brown",
+                "color": "white",
+                "background-image": "url(img/vignes.jpeg)",
+                "background-repeat": "no-repeat"
+            });
+            $(".element p").css({
+                "color": "white"
+            });
+            $(".Applisearch").css({
+                "border-color": "brown"
+            });
+            $(".bandeau").css({
                 "background-color": "brown",
                 "color": "white"
             });
         }
-    });
-
+        if (theme == "batman") {
+            $("body").css("background-image", "url(img/gotham.jpg)");
+            $("#header a").css("color", "paleTurquoise");
+            $("#header a").hover(function () {
+                $(this).css("color", "deepskyblue");
+            }, function () {
+                $(this).css("color", "paleTurquoise");
+            });
+            $("#Theme").css({
+                "color": "paleTurquoise",
+                "background-color": "black"
+            });
+            $(".cadre").css({
+                "border-color": "paleTurquoise",
+                "color": "white",
+                "background-image": "url(img/batarang.jpg)",
+                "background-position": "center",
+                "background-repeat": "no-repeat"
+            });
+            $(".element p").css({
+                "color": "white"
+            });
+            $(".Applisearch").css({
+                "border-color": "paleTurquoise"
+            });
+            $(".bandeau").css({
+                "background-color": "paleTurquoise",
+                "color": "black"
+            });
+        }
+        if (theme == "starwars") {
+            $("body").css("background-image", "url(img/starwars.jpg)");
+            $("#header a").css("color", "darkgrey");
+            $("#header a").hover(function () {
+                $(this).css("color", "white");
+            }, function () {
+                $(this).css("color", "darkgrey");
+            });
+            $("#Theme").css({
+                "color": "white",
+                "background-color": "black"
+            });
+            $(".cadre").css({
+                "border-color": "darkgrey",
+                "color": "white",
+                "background-image": "url(img/empire.jpg)",
+                "background-position": "center",
+                "background-repeat": "no-repeat"
+            });
+            $(".element p").css({
+                "color": "white"
+            });
+            $(".Applisearch").css({
+                "border-color": "grey"
+            });
+            $(".bandeau").css({
+                "background-color": "darkgrey",
+                "color": "black"
+            });
+        }
+        if (theme == "nature") {
+            $("body").css("background-image", "url(img/nature.jpg)");
+            $("#header a").css("color", "white");
+            $("#header a").hover(function () {
+                $(this).css("color", "darkgreen");
+            }, function () {
+                $(this).css("color", "white");
+            });
+            $("#Theme").css({
+                "color": "white",
+                "background-color": "darkgreen"
+            });
+            $(".cadre").css({
+                "border-color": "darkgreen",
+                "color": "white",
+                "background-image": "url(img/foret.jpg)",
+                "background-position": "center",
+                "background-repeat": "no-repeat"
+            });
+            $(".element p").css({
+                "color": "white"
+            });
+            $(".Applisearch").css({
+                "border-color": "darkgreen"
+            });
+            $(".bandeau").css({
+                "background-color": "darkgreen",
+                "color": "white"
+            });
+        }
+        if (theme == "mer") {
+            $("body").css("background-image", "url(img/mer.jpg)");
+            $("#header a").css("color", "white");
+            $("#header a").hover(function () {
+                $(this).css("color", "dodgerblue");
+            }, function () {
+                $(this).css("color", "white");
+            });
+            $("#Theme").css({
+                "color": "white",
+                "background-color": "dodgerblue"
+            });
+            $(".cadre").css({
+                "border-color": "dodgerblue",
+                "color": "white",
+                "background-image": "url(img/ocean.jpg)",
+                "background-position": "center",
+                "background-repeat": "no-repeat"
+            });
+            $(".element p").css({
+                "color": "white"
+            });
+            $(".Applisearch").css({
+                "border-color": "dodgerblue"
+            });
+            $(".bandeau").css({
+                "background-color": "dodgerBlue",
+                "color": "white"
+            });
+        }
+        if (theme == "avengers") {
+            $("body").css("background-image", "url(img/avengers.jpg)");
+            $("#header a").css("color", "white");
+            $("#header a").hover(function () {
+                $(this).css("color", "midnightblue");
+            }, function () {
+                $(this).css("color", "white");
+            });
+            $("#Theme").css({
+                "color": "white",
+                "background-color": "black"
+            });
+            $(".cadre").css({
+                "border-color": "black",
+                "color": "white",
+                "background-image": "url(img/assembled.jpg)",
+                "background-position": "center",
+                "background-repeat": "no-repeat"
+            });
+            $(".element p").css({
+                "color": "white"
+            });
+            $(".Applisearch").css({
+                "border-color": "black"
+            });
+            $(".bandeau").css({
+                "background-color": "midnightblue",
+                "color": "white"
+            });
+        }
+    }
 
 
     /* Fonctions des Widgets */
@@ -264,7 +468,7 @@ $(document).ready(function () {
                             <a href="` + donnees["articles"][i]["url"] + `">` +
                         donnees["articles"][i]["title"] + "</a> - " +
                         donnees["articles"][i]["source"]["name"] + "</p>");
-                        console.log(donnees);
+                    console.log(donnees);
                 }
             }
         }
@@ -282,9 +486,9 @@ $(document).ready(function () {
                 $("#dvideo .element").append(`<iframe src="https://www.youtube.com/embed/` +
                     donnees["items"][0]["id"]["videoId"] + `"?autoplay=0>`);
                 $("#dvideo .element iframe").css({
-                    "width":"100%",
-                    "height":"100%",
-                    "position":"absolute"
+                    "width": "100%",
+                    "height": "100%",
+                    "position": "absolute"
                 });
             }
         }
