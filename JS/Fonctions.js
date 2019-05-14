@@ -75,184 +75,187 @@ $(document).ready(function () {
 
     $("#Theme").on('click', function () {
         $("#Theme option").each(function () {});
-        if ($("#Theme").val() == "bordeaux") {
-            $("body").css("background-image", "url(img/bordeaux.jpg)");
-            $("#header a").css("color", "brown");
-            $("#header a").hover(function () {
-                $(this).css("color", "bisque");
-            }, function () {
-                $(this).css("color", "brown");
-            });
-            $("#Theme").css({
-                "color": "brown",
-                "background-color": "bisque"
-            });
-            $(".cadre").css({
-                "border-color": "brown",
-                "color": "white",
-                "background-image": "url(img/tonneau.jpg)",
-                "background-repeat": "no-repeat"
-            });
-            $(".element p").css({
-                "color": "white"
-            });
-            $(".Applisearch").css({
-                "border-color": "brown"
-            });
-            $(".bandeau").css({
-                "background-color": "brown",
-                "color": "white"
-            });
-        }
-        if ($("#Theme").val() == "batman") {
-            $("body").css("background-image", "url(img/gotham.jpg)");
-            $("#header a").css("color", "paleTurquoise");
-            $("#header a").hover(function () {
-                $(this).css("color", "deepskyblue");
-            }, function () {
-                $(this).css("color", "paleTurquoise");
-            });
-            $("#Theme").css({
-                "color": "paleTurquoise",
-                "background-color": "black"
-            });
-            $(".cadre").css({
-                "border-color": "paleTurquoise",
-                "color": "white",
-                "background-image": "url(img/batarang.jpg)",
-                "background-position": "center",
-                "background-repeat": "no-repeat"
-            });
-            $(".element p").css({
-                "color": "white"
-            });
-            $(".Applisearch").css({
-                "border-color": "paleTurquoise"
-            });
-            $(".bandeau").css({
-                "background-color": "paleTurquoise",
-                "color": "black"
-            });
-        }
-        if ($("#Theme").val() == "starwars") {
-            $("body").css("background-image", "url(img/starwars.jpg)");
-            $("#header a").css("color", "darkgrey");
-            $("#header a").hover(function () {
-                $(this).css("color", "white");
-            }, function () {
-                $(this).css("color", "darkgrey");
-            });
-            $("#Theme").css({
-                "color": "white",
-                "background-color": "black"
-            });
-            $(".cadre").css({
-                "border-color": "darkgrey",
-                "color": "white",
-                "background-image": "url(img/empire.jpg)",
-                "background-position": "center",
-                "background-repeat": "no-repeat"
-            });
-            $(".element p").css({
-                "color": "white"
-            });
-            $(".Applisearch").css({
-                "border-color": "grey"
-            });
-            $(".bandeau").css({
-                "background-color": "darkgrey",
-                "color": "black"
-            });
-        }
-        if ($("#Theme").val() == "nature") {
-            $("body").css("background-image", "url(img/nature.jpg)");
-            $("#header a").css("color", "white");
-            $("#header a").hover(function () {
-                $(this).css("color", "darkgreen");
-            }, function () {
-                $(this).css("color", "white");
-            });
-            $("#Theme").css({
-                "color": "white",
-                "background-color": "darkgreen"
-            });
-            $(".cadre").css({
-                "border-color": "darkgreen",
-                "color": "white",
-                "background-image": "url(img/foret.jpg)",
-                "background-position": "center",
-                "background-repeat": "no-repeat"
-            });
-            $(".element p").css({
-                "color": "white"
-            });
-            $(".Applisearch").css({
-                "border-color": "darkgreen"
-            });
-            $(".bandeau").css({
-                "background-color": "darkgreen",
-                "color": "white"
-            });
-        }
-        if ($("#Theme").val() == "mer") {
-            $("body").css("background-image", "url(img/mer.jpg)");
-            $("#header a").css("color", "white");
-            $("#header a").hover(function () {
-                $(this).css("color", "dodgerblue");
-            }, function () {
-                $(this).css("color", "white");
-            });
-            $("#Theme").css({
-                "color": "white",
-                "background-color": "dodgerblue"
-            });
-            $(".cadre").css({
-                "border-color": "dodgerblue",
-                "color": "white",
-                "background-image": "url(img/ocean.jpg)",
-                "background-position": "center",
-                "background-repeat": "no-repeat"
-            });
-            $(".element p").css({
-                "color": "white"
-            });
-            $(".Applisearch").css({
-                "border-color": "dodgerblue"
-            });
-            $(".bandeau").css({
-                "background-color": "dodgerBlue",
-                "color": "white"
-            });
-        }
-        if ($("#Theme").val() == "avengers") {
-            $("body").css("background-image", "url(img/avengers.jpg)");
-            $("#header a").css("color", "white");
-            $("#header a").hover(function () {
-                $(this).css("color", "midnightblue");
-            }, function () {
-                $(this).css("color", "white");
-            });
-            $("#Theme").css({
-                "color": "white",
-                "background-color": "black"
-            });
-            $(".cadre").css({
-                "border-color": "black",
-                "color": "white",
-                "background-image": "url(img/assembled.jpg)",
-                "background-position": "center",
-                "background-repeat": "no-repeat"
-            });
-            $(".element p").css({
-                "color": "white"
-            });
-            $(".Applisearch").css({
-                "border-color": "black"
-            });
-            $(".bandeau").css({
-                "background-color": "midnightblue",
-                "color": "white"
-            });
+
+        switch ($("#Theme").val()) {
+            case "bordeaux":
+                $("body").css("background-image", "url(img/bordeaux.jpg)");
+                $("#header a").css("color", "brown");
+                $("#header a").hover(function () {
+                    $(this).css("color", "bisque");
+                }, function () {
+                    $(this).css("color", "brown");
+                });
+                $("#Theme").css({
+                    "color": "brown",
+                    "background-color": "bisque"
+                });
+                $(".cadre").css({
+                    "border-color": "brown",
+                    "color": "white",
+                    "background-image": "url(img/tonneau.jpg)",
+                    "background-repeat": "no-repeat"
+                });
+                $(".element p").css({
+                    "color": "white"
+                });
+                $(".Applisearch").css({
+                    "border-color": "brown"
+                });
+                $(".bandeau").css({
+                    "background-color": "brown",
+                    "color": "white"
+                });
+                break;
+            case "batman":
+                $("body").css("background-image", "url(img/gotham.jpg)");
+                $("#header a").css("color", "paleTurquoise");
+                $("#header a").hover(function () {
+                    $(this).css("color", "deepskyblue");
+                }, function () {
+                    $(this).css("color", "paleTurquoise");
+                });
+                $("#Theme").css({
+                    "color": "paleTurquoise",
+                    "background-color": "black"
+                });
+                $(".cadre").css({
+                    "border-color": "paleTurquoise",
+                    "color": "white",
+                    "background-image": "url(img/batarang.jpg)",
+                    "background-position": "center",
+                    "background-repeat": "no-repeat"
+                });
+                $(".element p").css({
+                    "color": "white"
+                });
+                $(".Applisearch").css({
+                    "border-color": "paleTurquoise"
+                });
+                $(".bandeau").css({
+                    "background-color": "paleTurquoise",
+                    "color": "black"
+                });
+                break;
+            case "starwars":
+                $("body").css("background-image", "url(img/starwars.jpg)");
+                $("#header a").css("color", "darkgrey");
+                $("#header a").hover(function () {
+                    $(this).css("color", "white");
+                }, function () {
+                    $(this).css("color", "darkgrey");
+                });
+                $("#Theme").css({
+                    "color": "white",
+                    "background-color": "black"
+                });
+                $(".cadre").css({
+                    "border-color": "darkgrey",
+                    "color": "white",
+                    "background-image": "url(img/empire.jpg)",
+                    "background-position": "center",
+                    "background-repeat": "no-repeat"
+                });
+                $(".element p").css({
+                    "color": "white"
+                });
+                $(".Applisearch").css({
+                    "border-color": "grey"
+                });
+                $(".bandeau").css({
+                    "background-color": "darkgrey",
+                    "color": "black"
+                });
+                break;
+            case "nature":
+                $("body").css("background-image", "url(img/nature.jpg)");
+                $("#header a").css("color", "white");
+                $("#header a").hover(function () {
+                    $(this).css("color", "darkgreen");
+                }, function () {
+                    $(this).css("color", "white");
+                });
+                $("#Theme").css({
+                    "color": "white",
+                    "background-color": "darkgreen"
+                });
+                $(".cadre").css({
+                    "border-color": "darkgreen",
+                    "color": "white",
+                    "background-image": "url(img/foret.jpg)",
+                    "background-position": "center",
+                    "background-repeat": "no-repeat"
+                });
+                $(".element p").css({
+                    "color": "white"
+                });
+                $(".Applisearch").css({
+                    "border-color": "darkgreen"
+                });
+                $(".bandeau").css({
+                    "background-color": "darkgreen",
+                    "color": "white"
+                });
+                break;
+            case "mer":
+                $("body").css("background-image", "url(img/mer.jpg)");
+                $("#header a").css("color", "white");
+                $("#header a").hover(function () {
+                    $(this).css("color", "dodgerblue");
+                }, function () {
+                    $(this).css("color", "white");
+                });
+                $("#Theme").css({
+                    "color": "white",
+                    "background-color": "dodgerblue"
+                });
+                $(".cadre").css({
+                    "border-color": "dodgerblue",
+                    "color": "white",
+                    "background-image": "url(img/ocean.jpg)",
+                    "background-position": "center",
+                    "background-repeat": "no-repeat"
+                });
+                $(".element p").css({
+                    "color": "white"
+                });
+                $(".Applisearch").css({
+                    "border-color": "dodgerblue"
+                });
+                $(".bandeau").css({
+                    "background-color": "dodgerBlue",
+                    "color": "white"
+                });
+                break;
+            case "avengers":
+                $("body").css("background-image", "url(img/avengers.jpg)");
+                $("#header a").css("color", "white");
+                $("#header a").hover(function () {
+                    $(this).css("color", "midnightblue");
+                }, function () {
+                    $(this).css("color", "white");
+                });
+                $("#Theme").css({
+                    "color": "white",
+                    "background-color": "black"
+                });
+                $(".cadre").css({
+                    "border-color": "black",
+                    "color": "white",
+                    "background-image": "url(img/assembled.jpg)",
+                    "background-position": "center",
+                    "background-repeat": "no-repeat"
+                });
+                $(".element p").css({
+                    "color": "white"
+                });
+                $(".Applisearch").css({
+                    "border-color": "black"
+                });
+                $(".bandeau").css({
+                    "background-color": "midnightblue",
+                    "color": "white"
+                });
+                break;
         }
         window.localStorage.setItem("theme", $("#Theme").val());
     });
@@ -456,7 +459,7 @@ $(document).ready(function () {
     function DonneesInfo() {
         var query = $("#dinfo .Applisearch").val();
         var reqI = new XMLHttpRequest();
-        reqI.open("GET", 'https://newsapi.org/v2/everything?q=' + query + '&language=fr&sortBy=popularity&apiKey=34303e0e54684ed19a95b0971d388be8', true);
+        reqI.open("GET", 'https://newsapi.org/v2/everything?q=' + query + '&language=fr&sortBy=publishedAt&apiKey=34303e0e54684ed19a95b0971d388be8', true);
         reqI.onreadystatechange = function () {
             if (reqI.readyState == 4 && reqI.status == 200) {
                 donnees = JSON.parse(reqI.responseText);
@@ -577,16 +580,26 @@ $(document).ready(function () {
                 if (donnees["results"]["0"]["media_type"] == "movie") {
                     $("#dcinema .element p").remove();
                     $("#dcinema .element").append("<p><img src='https://image.tmdb.org/t/p/w400" + donnees["results"]["0"]["poster_path"] + "'>" +
-                    "<br/> Date de sortie : " + donnees["results"]["0"]["release_date"] +
-                    "<br/> Evaluation TMDB : " + donnees["results"]["0"]["vote_average"] + "/10" +
-                    "<br/><br/> Synopsis : " + donnees["results"]["0"]["overview"] + "</p>"
-                    )};
-                if(donnees["results"]["0"]["media_type"]=="person"){
+                        "<br/> Date de sortie : " + donnees["results"]["0"]["release_date"] +
+                        "<br/> Evaluation TMDB : " + donnees["results"]["0"]["vote_average"] + "/10" +
+                        "<br/><br/> Synopsis : " + donnees["results"]["0"]["overview"] + "</p>"
+                    );
+                };
+                if (donnees["results"]["0"]["media_type"] == "tv") {
                     $("#dcinema .element p").remove();
-                    $("#dcinema .element").append("<p><img src='https://image.tmdb.org/t/p/w400" + donnees["results"]["0"]["profile_path"] + "'>" + 
-                    "<br/><br/> Popularité TMDB : " + donnees["results"]["0"]["popularity"] +
-                    "<br/> A joué dans : " + donnees["results"]["0"]["known_for"]["0"]["title"] + "<br/>" + donnees["results"]["0"]["known_for"]["1"]["title"] + "<br/>" + donnees["results"]["0"]["known_for"]["2"]["title"] + "</p>"
-                )};
+                    $("#dcinema .element").append("<p><img src='https://image.tmdb.org/t/p/w400" + donnees["results"]["0"]["poster_path"] + "'>" +
+                        "<br/> Date de première diffusion : " + donnees["results"]["0"]["first_air_date"] +
+                        "<br/> Evaluation TMDB : " + donnees["results"]["0"]["vote_average"] + "/10" +
+                        "<br/><br/> Histoire de la série : " + donnees["results"]["0"]["overview"] + "</p>"
+                    )
+                };
+                if (donnees["results"]["0"]["media_type"] == "person") {
+                    $("#dcinema .element p").remove();
+                    $("#dcinema .element").append("<p><img src='https://image.tmdb.org/t/p/w400" + donnees["results"]["0"]["profile_path"] + "'>" +
+                        "<br/><br/> Popularité TMDB : " + donnees["results"]["0"]["popularity"] +
+                        "<br/> A joué dans : " + donnees["results"]["0"]["known_for"]["0"]["title"] + "<br/>" + donnees["results"]["0"]["known_for"]["1"]["title"] + "<br/>" + donnees["results"]["0"]["known_for"]["2"]["title"] + "</p>"
+                    )
+                };
             };
         }
         reqC.send(null);

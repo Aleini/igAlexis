@@ -36,7 +36,11 @@ ul li {
 
 #btnG {
     background-color: white;
-    margin: 6px 0 0 0;
+    margin-top: 6px;
+}
+
+.Applisearch+button{
+    width: 45px;
 }
 
 strong {
@@ -115,20 +119,19 @@ strong {
 
 #dcinema {
     position: absolute;
-    top:400px;
     width: 400px;
-    left: 1200px;
+    left: 1400px;
 }
 
 .Applisearch {
-    width: 84%;
+    width: 83%;
     border-color: brown;
 }
 
 #dvideo .Applisearch,
 #dphoto .Applisearch,
 #dcinema .Applisearch {
-    width: 88%;
+    width: 87%;
 }
 
 .bandeau {
